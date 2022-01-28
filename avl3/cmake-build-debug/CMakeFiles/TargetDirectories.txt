@@ -1,0 +1,7 @@
+/home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/CMakeFiles/mylib.dir
+/home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/GoogleTest/CMakeFiles/rebuild_cache.dir
+/home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/GoogleTest/CMakeFiles/edit_cache.dir
+/home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/GoogleTest/CMakeFiles/valgrind.dir
+/home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/GoogleTest/CMakeFiles/Google_Tests_run.dir

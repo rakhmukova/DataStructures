@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="avl3"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\GoogleTest\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="avl3">
+				<Option output="/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/avl3" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/Makefile&quot;  VERBOSE=1 avl3"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="avl3/fast">
+				<Option output="/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/avl3" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/Makefile&quot;  VERBOSE=1 avl3/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="valgrind">
+				<Option working_dir="/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/GoogleTest"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/GoogleTest/Makefile&quot;  VERBOSE=1 valgrind"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/GoogleTest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/GoogleTest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/GoogleTest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Google_Tests_run">
+				<Option output="/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/GoogleTest/Google_Tests_run" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/GoogleTest"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/user/repos/3rd_semester_c-/avl3/GoogleTest/../../GoogleTestsLib/include"/>
+					<Add directory="/home/user/repos/3rd_semester_c-/avl3/GoogleTest/../../GoogleTestsLib"/>
+					<Add directory="/home/user/repos/3rd_semester_c-/avl3/GoogleTest/.."/>
+					<Add directory="/home/user/repos/3rd_semester_c-/avl3/GoogleTest/../../GoogleTestsLib/googletest"/>
+					<Add directory="/home/user/repos/3rd_semester_c-/avl3/GoogleTest/../../GoogleTestsLib/googletest/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/GoogleTest/Makefile&quot;  VERBOSE=1 Google_Tests_run"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/GoogleTest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/GoogleTest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/GoogleTest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Google_Tests_run/fast">
+				<Option output="/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/GoogleTest/Google_Tests_run" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/GoogleTest"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/user/repos/3rd_semester_c-/avl3/GoogleTest/../../GoogleTestsLib/include"/>
+					<Add directory="/home/user/repos/3rd_semester_c-/avl3/GoogleTest/../../GoogleTestsLib"/>
+					<Add directory="/home/user/repos/3rd_semester_c-/avl3/GoogleTest/.."/>
+					<Add directory="/home/user/repos/3rd_semester_c-/avl3/GoogleTest/../../GoogleTestsLib/googletest"/>
+					<Add directory="/home/user/repos/3rd_semester_c-/avl3/GoogleTest/../../GoogleTestsLib/googletest/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/GoogleTest/Makefile&quot;  VERBOSE=1 Google_Tests_run/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/GoogleTest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/GoogleTest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/user/repos/3rd_semester_c-/avl3/cmake-build-debug/GoogleTest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/user/repos/3rd_semester_c-/avl3/AVLTree.cpp">
+			<Option target="Google_Tests_run"/>
+		</Unit>
+		<Unit filename="/home/user/repos/3rd_semester_c-/avl3/AVLTree.h">
+			<Option target="Google_Tests_run"/>
+		</Unit>
+		<Unit filename="/home/user/repos/3rd_semester_c-/avl3/GoogleTest/tests.cpp">
+			<Option target="Google_Tests_run"/>
+		</Unit>
+		<Unit filename="/home/user/repos/3rd_semester_c-/avl3/Node.cpp">
+			<Option target="Google_Tests_run"/>
+		</Unit>
+		<Unit filename="/home/user/repos/3rd_semester_c-/avl3/Node.h">
+			<Option target="Google_Tests_run"/>
+		</Unit>
+		<Unit filename="/home/user/repos/3rd_semester_c-/avl3/main.cpp">
+			<Option target="avl3"/>
+		</Unit>
+		<Unit filename="/home/user/repos/3rd_semester_c-/avl3/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/user/repos/3rd_semester_c-/avl3/GoogleTest/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\GoogleTest\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
