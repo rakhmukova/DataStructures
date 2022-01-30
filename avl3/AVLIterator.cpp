@@ -4,9 +4,7 @@ using namespace avl;
 
 template<typename T>
 AVLIterator<T> &AVLIterator<T>::operator++(){
-    if (!nodes.empty()){
-        auto current = nodes.top();
-        nodes.pop();
+    if (current){
         pushLeftBranch(current->right_child);
     }
 
@@ -34,9 +32,17 @@ AVLIterator<T> &AVLIterator<T>::operator=(const AVLIterator<T> &other) {
 }
 
 template<typename T>
-void AVLIterator<T>::pushLeftBranch(Node<T> *current_node) {
-    while(current_node != nullptr){
-        nodes.push(current_node); //copying constructor
+void AVLIterator<T>::pushLeftBranch(typename Node<T>::sNode current_node) {
+    while(current_node){
+        nodes.push(current_node);
         current_node = current_node->left_child;
+    }
+
+    if (nodes.empty()){
+        current = nullptr;
+    }
+    else{
+        current = nodes.top();
+        nodes.pop();
     }
 }

@@ -8,57 +8,46 @@
 using namespace std;
 using namespace avl;
 
-TEST(NodeOperations, CopyingConstructor){
-    auto *node = new Node<int>(9,
-                               new Node<int>(3),
-                               new Node<int>(4,
-                                             new Node<int>(12),
-                                             new Node<int>(1)));
-    Node<int> *copy(node);
-    ASSERT_EQ(9, copy->getValue());
-    ASSERT_EQ(3, copy->getHeight());
-    ASSERT_EQ(5, copy->getSize());
-    ASSERT_TRUE(copy->hasLeftChild());
-    ASSERT_TRUE(copy->hasRightChild());
-    //delete copy;
-    delete node;
-}
-
 TEST(TreeOperations, InsertAndDelete){
-    AVLTree<int> tree(nullptr);
+    AVLTree<int> tree;
     set<int> set;
-    size_t size = 700; //20000000; - 35 sec
+    size_t size = 78888; //20000000 - 35 sec
     vector<int> vector(size, 0);
     srand(time(nullptr));
-    int modulus = 20000000;
+    int modulus = 200000;
     generate(vector.begin(), vector.end(), [modulus] () {return random() % modulus; });
     for (auto el: vector){
         tree.insert(el);
         set.insert(el);
         ASSERT_TRUE(tree.contains(el));
-        ASSERT_EQ(tree.size(), set.size());
+        //ASSERT_EQ(tree.size(), set.size());
         //tree.print(cout);
     }
 
     for (auto el: vector){
         tree.deleteIfExists(el);
         set.erase(el);
-        ASSERT_FALSE(tree.contains(el));
-        ASSERT_EQ(set.find(el), set.end());
+
+        //EXPECT_FALSE(tree.contains(el));
+        //ASSERT_EQ(set.find(el), set.end());
         //EXPECT_EQ(tree.size(), set.size());
     }
 }
 
-/*TEST(TreeOperations, ToArray){
-    size_t size = 40000;
+TEST(TreeOperations, ToArray){
+    size_t size = 10000;
     vector<int> vector(size, 0);
     srand(time(nullptr));
     int modulus = 2000;
-    generate(vector.begin(), vector.end(), [modulus] () {return random() % modulus; });
+    generate(vector.begin(), vector.end(), [modulus] () { return random() % modulus; });
     AVLTree<int> tree(vector);
-    //auto vector_copy = tree.toArray();
-    //ASSERT_EQ(vector, vector_copy);
-}*/
+
+    auto vector_copy = tree.toArray();
+    std::sort(vector.begin(), vector.end());
+    vector.erase(unique(vector.begin(), vector.end()), vector.end());
+
+    ASSERT_EQ(vector, vector_copy);
+}
 
 TEST(TreeOperations, SplitByValueOutOfBorders){
     size_t size = 100;
@@ -66,14 +55,9 @@ TEST(TreeOperations, SplitByValueOutOfBorders){
     int modulus = 2000;
     generate(vector.begin(), vector.end(), [modulus] () {return random() % modulus; });
     AVLTree<int> tree(vector);
-    tree.print(cout);
     AVLTree<int> copy(tree);
-    auto splited = AVLTree<int>::split(tree.root, modulus, true);
-    AVLTree<int> tree2(splited.first);
-    tree2.print(cout);
-
-    AVLTree<int> tree3(splited.second);
-    tree3.print(cout);
+    auto splited = AVLTree<int>::split(tree, modulus, true);
+    //ASSERT_EQ(splited.first, copy);
 }
 
 TEST(TreeOperations, SplitByValueWithinBorders){
@@ -92,14 +76,7 @@ TEST(TreeOperations, SplitByValueWithinBorders){
     AVLTree<int> tree(vector);
     tree.print(cout);
     AVLTree<int> copy(tree);
-    auto splited = AVLTree<int>::split(tree.root, modulus, true);
-    //at least one value in each tree
-    AVLTree<int> tree2(splited.first);
-    tree2.print(cout);
-    //cout << tree2;
-
-    AVLTree<int> tree3(splited.second);
-    tree3.print(cout);
+    auto splited = AVLTree<int>::split(tree, modulus, true);
 }
 
 TEST(SetOperations, EmptyIntersection){
@@ -160,7 +137,7 @@ TEST(SetOperations, UnionAndIntersectionSizeRelation){
     AVLTree<int> s_tree = {3, 7, 6, 12, 13};
     auto intersection = ::setIntersection(f_tree, s_tree);
     auto union_trees = ::setUnion(f_tree, s_tree);
-    //ASSERT_EQ(f_tree.size() + s_tree.size() - intersection.size() , union_trees.size());
+    ASSERT_EQ(f_tree.size() + s_tree.size() - intersection.size() , union_trees.size());
     union_trees.print(cout);
 }
 
@@ -174,7 +151,7 @@ TEST(SetOperations, Difference){
     AVLTree<int> s_tree(vector);
     auto difference = ::setDifference(f_tree, s_tree);
     auto intersection = ::setIntersection(s_tree, difference);
-    //ASSERT_EQ(0, intersection.size());
+    ASSERT_EQ(0, intersection.size());
 }
 
 int main(int argc, char *argv[])

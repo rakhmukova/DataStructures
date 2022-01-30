@@ -6,83 +6,77 @@
 #include "Node.h"
 #include "AVLIterator.h"
 namespace avl{
-    template<class TKey>
+    template<class T>
     class AVLTree {
+    private:
+        using sNode = std::shared_ptr<Node<T>>;
+
+        sNode root;
+
+        static sNode recoverBalance(sNode subtree_root);
+
+        static sNode insert(sNode &subtree_root, const T &value);
+
+        static sNode findNode(const T &value, sNode subtree_root);
+
+        static sNode deleteIfExists(const T &value, sNode &subtree_root);
+
+        static sNode leftRotate(sNode k2);
+
+        static sNode rightRotate(sNode k2);
+
+        friend class AVLIterator<T>;
+
     public:
-        using TNode = Node<TKey>;
-        Node<TKey> *root;
+        explicit AVLTree(sNode root = sNode(nullptr));
 
-        static Node<TKey> *recoverBalance(Node<TKey> *subtree_root);
+        explicit AVLTree(const std::vector<T> &elements);
 
-        static Node<TKey> *insert(Node<TKey> *subtree_root, const TKey &value);
-
-        static Node<TKey> *findNode(const TKey &value, Node<TKey> *subtree_root);
-
-        static Node<TKey> *deleteIfExists(const TKey &value, Node<TKey> *subtree_root);
-
-        static Node<TKey> *leftRotate(Node<TKey> *k2);
-
-        static Node<TKey> *rightRotate(Node<TKey> *k2);
-
-        friend class AVLIterator<TKey>;
-
-    public:
-        AVLTree();
-
-        explicit AVLTree(Node<TKey> *root);
-
-        explicit AVLTree(const std::vector<TKey> &elements);
-
-        AVLTree(const std::initializer_list<TKey> &il);
+        AVLTree(const std::initializer_list<T> &il);
 
         AVLTree &operator=(const AVLTree &other);
 
         AVLTree(const AVLTree &other);
 
-        ~AVLTree();
-
         size_t size() const { return root ? root->getSize() : 0; }
 
         size_t height() const { return root ? root->getHeight() : 0; }
 
-        void insert(const TKey &value) { root = insert(root, value); }
+        void insert(const T &value) { root = insert(root, value); }
 
-        bool contains(const TKey &value) { return findNode(value, root) != nullptr; }
+        bool contains(const T &value) { return findNode(value, root) != nullptr; }
 
-        bool deleteIfExists(const TKey &value) { return deleteIfExists(value, root) != nullptr; }
+        bool deleteIfExists(const T &value) { return deleteIfExists(value, root) != nullptr; }
 
         void print(std::ostream &os) const;
 
-        std::vector<TKey> toArray() const;
+        std::vector<T> toArray() const;
 
-        static std::pair<TNode *, TNode *> split(TNode *subtree_root, const TKey &value, bool left_is_strictly_Less);
+        static std::pair<sNode, sNode> split(sNode  subtree_root, const T &value, bool left_is_strictly_Less);
 
-        static std::pair<AVLTree, AVLTree> split(AVLTree &tree, const TKey &value, bool left_is_strictly_Less);
+        static std::pair<AVLTree, AVLTree> split(AVLTree &tree, const T &value, bool left_is_strictly_Less);
 
-        static TNode *mergeWithRootAndBalance(TNode *left, TNode *right, AVLTree::TNode *subtree_root);
-
-        AVLTree<TKey> &removeMoreThan(const TKey &value); //redo and unify
-
-        AVLTree<TKey> &removeLessThan(const TKey &value);
-
-        AVLTree<TKey> &remainWithinBorders(const TKey &left_border, const TKey & right_border); //[...)
+        static sNode mergeWithRootAndBalance(sNode left, sNode right, sNode subtree_root);
     };
 
-    template <typename TKey>
-    std::ostream& operator<<(std::ostream& os, const AVLTree<TKey> &tree);
+    template <typename T>
+    std::ostream& operator<<(std::ostream& os, const AVLTree<T> &tree);
 
-    template <typename TKey>
-    bool operator==(const AVLTree<TKey> &tree, const std::set<TKey> &set);
+    template <typename T>
+    bool operator==(const AVLTree<T> &tree, const std::set<T> &set);
 
-    template<class TKey>
-    AVLTree<TKey> setIntersection(const AVLTree<TKey> &first, const AVLTree<TKey> &second);
-    template<class TKey>
-    AVLTree<TKey> setUnion(const AVLTree<TKey> &first, const AVLTree<TKey> &second);
-    template<class TKey>
-    AVLTree<TKey> setDifference(const AVLTree<TKey> &first, const AVLTree<TKey> &second);
+    template<class T>
+    AVLTree<T> setIntersection(const AVLTree<T> &first, const AVLTree<T> &second);
 
-    template<class TKey>
-    bool operator ==(const AVLTree<TKey> &lhs, const AVLTree<TKey> &rhs);
-    template<class TKey>
-    bool operator !=(const AVLTree<TKey> &lhs, const AVLTree<TKey> &rhs);
+    template<class T>
+    AVLTree<T> setUnion(const AVLTree<T> &first, const AVLTree<T> &second);
+
+    template<class T>
+    AVLTree<T> setDifference(const AVLTree<T> &first, const AVLTree<T> &second);
+
+    template<class T>
+    bool operator ==(const AVLTree<T> &lhs, const AVLTree<T> &rhs);
+
+    template<class T>
+    bool operator !=(const AVLTree<T> &lhs, const AVLTree<T> &rhs);
 }

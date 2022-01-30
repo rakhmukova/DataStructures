@@ -6,8 +6,8 @@ using namespace avl;
 template<typename T>
 Node<T> &Node<T>::operator =(const Node<T> &other){
     if (this != &other) {
-        delete (this->left_child);
-        delete (this->right_child);
+        this->left_child = nullptr;
+        this->right_child = nullptr; //instead of deletion
         auto *tmp = new Node<T>(other);
         std::swap(*tmp, *this);
     }
@@ -28,16 +28,8 @@ void Node<T>::updateSize() {
                          + (right_child ? right_child->subtree_size: 0);
 }
 
-template <typename T>
-Node<T>::~Node() {
-    delete left_child;
-    left_child = nullptr; //redo
-    delete right_child;
-    right_child = nullptr;
-}
-
 template<typename T>
-Node<T>::Node(const T &value, Node *left_child, Node *right_child)
+Node<T>::Node(const T &value, const sNode &left_child, const sNode &right_child)
         :value(value)
         ,left_child(left_child)
         ,right_child(right_child)
@@ -47,14 +39,16 @@ Node<T>::Node(const T &value, Node *left_child, Node *right_child)
 }
 
 template<typename T>
-Node<T> *Node<T>::deepCopy() const{
-    auto *copy = new Node<T>(this->value);
+typename Node<T>::sNode Node<T>::deepCopy() const{
+    auto copy = std::make_shared<Node<T>>(this->value);
     if (right_child){
         copy->right_child = right_child->deepCopy();
     }
+
     if (left_child){
         copy->left_child = left_child->deepCopy();
     }
+
     copy->updateSize();
     copy->updateHeight();
     return copy;
@@ -62,15 +56,15 @@ Node<T> *Node<T>::deepCopy() const{
 
 template<typename T>
 Node<T>::Node(const Node &other)
-:value(value)
+:value(other.value)
 {
     if (other.left_child){
-        left_child = new Node(*other.left_child);
+        left_child = std::make_shared<Node<T>>(Node<T>(*other.left_child));
     }
 
     if (other.right_child){
-        right_child = new Node(*other.right_child);
-    } //redo
+        right_child = std::make_shared<Node<T>>(Node<T>(*other.right_child));
+    }
 
     updateSize();
     updateHeight();
