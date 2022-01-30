@@ -1,2 +1,2 @@
-/usr/bin/ar qc libmylib.a CMakeFiles/mylib.dir/Node.cpp.o CMakeFiles/mylib.dir/AVLTree.cpp.o CMakeFiles/mylib.dir/AVLIterator.cpp.o
+/usr/bin/ar qc libmylib.a CMakeFiles/mylib.dir/AVLTree.cpp.o
 /usr/bin/ranlib libmylib.a

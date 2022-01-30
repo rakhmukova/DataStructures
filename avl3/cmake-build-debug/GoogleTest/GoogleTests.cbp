@@ -82,12 +82,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/user/repos/3rd_semester_c-/DataStructs/avl3/AVLIterator.cpp">
-			<Option target="Google_Tests_run"/>
-		</Unit>
-		<Unit filename="/home/user/repos/3rd_semester_c-/DataStructs/avl3/AVLIterator.h">
-			<Option target="Google_Tests_run"/>
-		</Unit>
 		<Unit filename="/home/user/repos/3rd_semester_c-/DataStructs/avl3/AVLTree.cpp">
 			<Option target="Google_Tests_run"/>
 		</Unit>
@@ -95,12 +89,6 @@
 			<Option target="Google_Tests_run"/>
 		</Unit>
 		<Unit filename="/home/user/repos/3rd_semester_c-/DataStructs/avl3/GoogleTest/tests.cpp">
-			<Option target="Google_Tests_run"/>
-		</Unit>
-		<Unit filename="/home/user/repos/3rd_semester_c-/DataStructs/avl3/Node.cpp">
-			<Option target="Google_Tests_run"/>
-		</Unit>
-		<Unit filename="/home/user/repos/3rd_semester_c-/DataStructs/avl3/Node.h">
 			<Option target="Google_Tests_run"/>
 		</Unit>
 		<Unit filename="/home/user/repos/3rd_semester_c-/DataStructs/avl3/CMakeLists.txt">

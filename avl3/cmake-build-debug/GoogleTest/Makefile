@@ -144,30 +144,6 @@ Google_Tests_run/fast:
 	cd /home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug && $(MAKE) $(MAKESILENT) -f GoogleTest/CMakeFiles/Google_Tests_run.dir/build.make GoogleTest/CMakeFiles/Google_Tests_run.dir/build
 .PHONY : Google_Tests_run/fast
 
-__/AVLIterator.o: __/AVLIterator.cpp.o
-.PHONY : __/AVLIterator.o
-
-# target to build an object file
-__/AVLIterator.cpp.o:
-	cd /home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug && $(MAKE) $(MAKESILENT) -f GoogleTest/CMakeFiles/Google_Tests_run.dir/build.make GoogleTest/CMakeFiles/Google_Tests_run.dir/__/AVLIterator.cpp.o
-.PHONY : __/AVLIterator.cpp.o
-
-__/AVLIterator.i: __/AVLIterator.cpp.i
-.PHONY : __/AVLIterator.i
-
-# target to preprocess a source file
-__/AVLIterator.cpp.i:
-	cd /home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug && $(MAKE) $(MAKESILENT) -f GoogleTest/CMakeFiles/Google_Tests_run.dir/build.make GoogleTest/CMakeFiles/Google_Tests_run.dir/__/AVLIterator.cpp.i
-.PHONY : __/AVLIterator.cpp.i
-
-__/AVLIterator.s: __/AVLIterator.cpp.s
-.PHONY : __/AVLIterator.s
-
-# target to generate assembly for a file
-__/AVLIterator.cpp.s:
-	cd /home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug && $(MAKE) $(MAKESILENT) -f GoogleTest/CMakeFiles/Google_Tests_run.dir/build.make GoogleTest/CMakeFiles/Google_Tests_run.dir/__/AVLIterator.cpp.s
-.PHONY : __/AVLIterator.cpp.s
-
 __/AVLTree.o: __/AVLTree.cpp.o
 .PHONY : __/AVLTree.o
 
@@ -191,30 +167,6 @@ __/AVLTree.s: __/AVLTree.cpp.s
 __/AVLTree.cpp.s:
 	cd /home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug && $(MAKE) $(MAKESILENT) -f GoogleTest/CMakeFiles/Google_Tests_run.dir/build.make GoogleTest/CMakeFiles/Google_Tests_run.dir/__/AVLTree.cpp.s
 .PHONY : __/AVLTree.cpp.s
-
-__/Node.o: __/Node.cpp.o
-.PHONY : __/Node.o
-
-# target to build an object file
-__/Node.cpp.o:
-	cd /home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug && $(MAKE) $(MAKESILENT) -f GoogleTest/CMakeFiles/Google_Tests_run.dir/build.make GoogleTest/CMakeFiles/Google_Tests_run.dir/__/Node.cpp.o
-.PHONY : __/Node.cpp.o
-
-__/Node.i: __/Node.cpp.i
-.PHONY : __/Node.i
-
-# target to preprocess a source file
-__/Node.cpp.i:
-	cd /home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug && $(MAKE) $(MAKESILENT) -f GoogleTest/CMakeFiles/Google_Tests_run.dir/build.make GoogleTest/CMakeFiles/Google_Tests_run.dir/__/Node.cpp.i
-.PHONY : __/Node.cpp.i
-
-__/Node.s: __/Node.cpp.s
-.PHONY : __/Node.s
-
-# target to generate assembly for a file
-__/Node.cpp.s:
-	cd /home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug && $(MAKE) $(MAKESILENT) -f GoogleTest/CMakeFiles/Google_Tests_run.dir/build.make GoogleTest/CMakeFiles/Google_Tests_run.dir/__/Node.cpp.s
-.PHONY : __/Node.cpp.s
 
 tests.o: tests.cpp.o
 .PHONY : tests.o
@@ -250,15 +202,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... valgrind"
 	@echo "... Google_Tests_run"
-	@echo "... __/AVLIterator.o"
-	@echo "... __/AVLIterator.i"
-	@echo "... __/AVLIterator.s"
 	@echo "... __/AVLTree.o"
 	@echo "... __/AVLTree.i"
 	@echo "... __/AVLTree.s"
-	@echo "... __/Node.o"
-	@echo "... __/Node.i"
-	@echo "... __/Node.s"
 	@echo "... tests.o"
 	@echo "... tests.i"
 	@echo "... tests.s"

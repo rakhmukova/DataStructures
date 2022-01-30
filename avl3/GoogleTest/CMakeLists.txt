@@ -6,7 +6,7 @@ include_directories(${lib}/include ${lib})
 
 enable_testing()
 include_directories(..)
-add_executable(Google_Tests_run tests.cpp ../Node.cpp ../AVLTree.cpp ../AVLIterator.cpp)
+add_executable(Google_Tests_run tests.cpp ../AVLTree.cpp)
 include_directories(${lib}/googletest
         ${lib}/googletest/include)
 target_link_libraries(Google_Tests_run gtest gtest_main)

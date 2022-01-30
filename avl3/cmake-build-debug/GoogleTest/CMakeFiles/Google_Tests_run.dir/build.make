@@ -79,22 +79,9 @@ GoogleTest/CMakeFiles/Google_Tests_run.dir/tests.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Google_Tests_run.dir/tests.cpp.s"
 	cd /home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/GoogleTest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/repos/3rd_semester_c-/DataStructs/avl3/GoogleTest/tests.cpp -o CMakeFiles/Google_Tests_run.dir/tests.cpp.s
 
-GoogleTest/CMakeFiles/Google_Tests_run.dir/__/Node.cpp.o: GoogleTest/CMakeFiles/Google_Tests_run.dir/flags.make
-GoogleTest/CMakeFiles/Google_Tests_run.dir/__/Node.cpp.o: ../Node.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object GoogleTest/CMakeFiles/Google_Tests_run.dir/__/Node.cpp.o"
-	cd /home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/GoogleTest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Google_Tests_run.dir/__/Node.cpp.o -c /home/user/repos/3rd_semester_c-/DataStructs/avl3/Node.cpp
-
-GoogleTest/CMakeFiles/Google_Tests_run.dir/__/Node.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Google_Tests_run.dir/__/Node.cpp.i"
-	cd /home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/GoogleTest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/repos/3rd_semester_c-/DataStructs/avl3/Node.cpp > CMakeFiles/Google_Tests_run.dir/__/Node.cpp.i
-
-GoogleTest/CMakeFiles/Google_Tests_run.dir/__/Node.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Google_Tests_run.dir/__/Node.cpp.s"
-	cd /home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/GoogleTest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/repos/3rd_semester_c-/DataStructs/avl3/Node.cpp -o CMakeFiles/Google_Tests_run.dir/__/Node.cpp.s
-
 GoogleTest/CMakeFiles/Google_Tests_run.dir/__/AVLTree.cpp.o: GoogleTest/CMakeFiles/Google_Tests_run.dir/flags.make
 GoogleTest/CMakeFiles/Google_Tests_run.dir/__/AVLTree.cpp.o: ../AVLTree.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object GoogleTest/CMakeFiles/Google_Tests_run.dir/__/AVLTree.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object GoogleTest/CMakeFiles/Google_Tests_run.dir/__/AVLTree.cpp.o"
 	cd /home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/GoogleTest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Google_Tests_run.dir/__/AVLTree.cpp.o -c /home/user/repos/3rd_semester_c-/DataStructs/avl3/AVLTree.cpp
 
 GoogleTest/CMakeFiles/Google_Tests_run.dir/__/AVLTree.cpp.i: cmake_force
@@ -105,36 +92,19 @@ GoogleTest/CMakeFiles/Google_Tests_run.dir/__/AVLTree.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Google_Tests_run.dir/__/AVLTree.cpp.s"
 	cd /home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/GoogleTest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/repos/3rd_semester_c-/DataStructs/avl3/AVLTree.cpp -o CMakeFiles/Google_Tests_run.dir/__/AVLTree.cpp.s
 
-GoogleTest/CMakeFiles/Google_Tests_run.dir/__/AVLIterator.cpp.o: GoogleTest/CMakeFiles/Google_Tests_run.dir/flags.make
-GoogleTest/CMakeFiles/Google_Tests_run.dir/__/AVLIterator.cpp.o: ../AVLIterator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object GoogleTest/CMakeFiles/Google_Tests_run.dir/__/AVLIterator.cpp.o"
-	cd /home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/GoogleTest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Google_Tests_run.dir/__/AVLIterator.cpp.o -c /home/user/repos/3rd_semester_c-/DataStructs/avl3/AVLIterator.cpp
-
-GoogleTest/CMakeFiles/Google_Tests_run.dir/__/AVLIterator.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Google_Tests_run.dir/__/AVLIterator.cpp.i"
-	cd /home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/GoogleTest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/repos/3rd_semester_c-/DataStructs/avl3/AVLIterator.cpp > CMakeFiles/Google_Tests_run.dir/__/AVLIterator.cpp.i
-
-GoogleTest/CMakeFiles/Google_Tests_run.dir/__/AVLIterator.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Google_Tests_run.dir/__/AVLIterator.cpp.s"
-	cd /home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/GoogleTest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/repos/3rd_semester_c-/DataStructs/avl3/AVLIterator.cpp -o CMakeFiles/Google_Tests_run.dir/__/AVLIterator.cpp.s
-
 # Object files for target Google_Tests_run
 Google_Tests_run_OBJECTS = \
 "CMakeFiles/Google_Tests_run.dir/tests.cpp.o" \
-"CMakeFiles/Google_Tests_run.dir/__/Node.cpp.o" \
-"CMakeFiles/Google_Tests_run.dir/__/AVLTree.cpp.o" \
-"CMakeFiles/Google_Tests_run.dir/__/AVLIterator.cpp.o"
+"CMakeFiles/Google_Tests_run.dir/__/AVLTree.cpp.o"
 
 # External object files for target Google_Tests_run
 Google_Tests_run_EXTERNAL_OBJECTS =
 
 GoogleTest/Google_Tests_run: GoogleTest/CMakeFiles/Google_Tests_run.dir/tests.cpp.o
-GoogleTest/Google_Tests_run: GoogleTest/CMakeFiles/Google_Tests_run.dir/__/Node.cpp.o
 GoogleTest/Google_Tests_run: GoogleTest/CMakeFiles/Google_Tests_run.dir/__/AVLTree.cpp.o
-GoogleTest/Google_Tests_run: GoogleTest/CMakeFiles/Google_Tests_run.dir/__/AVLIterator.cpp.o
 GoogleTest/Google_Tests_run: GoogleTest/CMakeFiles/Google_Tests_run.dir/build.make
 GoogleTest/Google_Tests_run: GoogleTest/CMakeFiles/Google_Tests_run.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable Google_Tests_run"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Google_Tests_run"
 	cd /home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/GoogleTest && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Google_Tests_run.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

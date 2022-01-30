@@ -2,37 +2,110 @@
 
 #include <vector>
 #include <initializer_list>
+#include <functional>
+#include <memory>
+#include <cstdlib>
+#include <stack>
+#include <set>
+#include <iostream>
 
-#include "Node.h"
-#include "AVLIterator.h"
 namespace avl{
-    template<class T>
+    template<class T, class TCompare = std::less<T>>
     class AVLTree {
     private:
-        using sNode = std::shared_ptr<Node<T>>;
+        //node
+        struct Node{
+            using sNode = std::shared_ptr<Node>;
+
+            T value;
+
+            sNode left_child;
+
+            sNode right_child;
+
+            unsigned int subtree_height = 1;
+
+            size_t subtree_size = 1;
+
+        public:
+            explicit Node(const T &value, const sNode &left_child = nullptr,
+                          const sNode &right_child = nullptr);
+
+            Node &operator=(const Node &other);
+
+            Node(const Node &other);
+
+            bool hasLeftChild() const noexcept{ return left_child!= nullptr; }
+
+            bool hasRightChild() const noexcept{ return right_child!= nullptr;}
+
+            const T &getValue() const noexcept { return value; }
+
+            unsigned int getHeight() const noexcept { return subtree_height; }
+
+            size_t getSize() const noexcept { return subtree_size; }
+
+            int heightDiff() const;
+
+            void updateHeight();
+
+            void updateSize();
+
+            void print(std::ostream &os, uint indent = 0) const;
+
+            friend std::ostream& operator<<(std::ostream& os, const Node &node);
+
+            sNode deepCopy() const;
+        };
+
+    public:
+        //iterator
+        struct AVLIterator{
+        private:
+            std::stack<typename Node::sNode> nodes;
+
+            typename Node::sNode current;
+
+            void pushLeftBranch(typename Node::sNode node);
+
+        public:
+            explicit AVLIterator(const AVLTree<T>& tree);
+
+            T operator*() { return current->getValue(); }
+
+            AVLIterator & operator=(const AVLIterator &other);
+
+            AVLIterator & operator++();
+
+            AVLIterator &operator++ (int);
+
+            typename Node::sNode currentNode() { return current; } //redo
+        };
+
+        using sNode = std::shared_ptr<Node>;
 
         sNode root;
 
-        static sNode recoverBalance(sNode subtree_root);
+        TCompare cmp;
 
-        static sNode insert(sNode &subtree_root, const T &value);
+        static sNode recoverBalance(sNode subtree_root); //static vs non-static
 
-        static sNode findNode(const T &value, sNode subtree_root);
+        sNode insert(sNode &subtree_root, const T &value);
 
-        static sNode deleteIfExists(const T &value, sNode &subtree_root);
+        sNode findNode(const T &value, sNode subtree_root);
+
+        sNode deleteIfExists(const T &value, sNode &subtree_root);
 
         static sNode leftRotate(sNode k2);
 
         static sNode rightRotate(sNode k2);
 
-        friend class AVLIterator<T>;
-
     public:
-        explicit AVLTree(sNode root = sNode(nullptr));
+        explicit AVLTree(sNode root = nullptr, const TCompare &cmp = TCompare());
 
-        explicit AVLTree(const std::vector<T> &elements);
+        explicit AVLTree(const std::vector<T> &elements, const TCompare &cmp = TCompare());
 
-        AVLTree(const std::initializer_list<T> &il);
+        AVLTree(const std::initializer_list<T> &il, const TCompare &cmp = TCompare());
 
         AVLTree &operator=(const AVLTree &other);
 
@@ -59,24 +132,24 @@ namespace avl{
         static sNode mergeWithRootAndBalance(sNode left, sNode right, sNode subtree_root);
     };
 
-    template <typename T>
-    std::ostream& operator<<(std::ostream& os, const AVLTree<T> &tree);
+    template <typename T, typename TCompare>
+    std::ostream& operator<<(std::ostream& os, const AVLTree<T, TCompare> &tree);
 
-    template <typename T>
-    bool operator==(const AVLTree<T> &tree, const std::set<T> &set);
+    template <typename T, typename TCompare>
+    bool operator==(const AVLTree<T, TCompare> &tree, const std::set<T> &set);
 
-    template<class T>
-    AVLTree<T> setIntersection(const AVLTree<T> &first, const AVLTree<T> &second);
+    template<typename T, typename TCompare = std::less<T>>
+    AVLTree<T, TCompare> setIntersection(const AVLTree<T, TCompare> &first, const AVLTree<T, TCompare> &second);
 
-    template<class T>
-    AVLTree<T> setUnion(const AVLTree<T> &first, const AVLTree<T> &second);
+    template<typename T, typename TCompare = std::less<T>>
+    AVLTree<T, TCompare> setUnion(const AVLTree<T, TCompare> &first, const AVLTree<T, TCompare> &second);
 
-    template<class T>
-    AVLTree<T> setDifference(const AVLTree<T> &first, const AVLTree<T> &second);
+    template<typename T, typename TCompare = std::less<T>>
+    AVLTree<T, TCompare> setDifference(const AVLTree<T, TCompare> &first, const AVLTree<T, TCompare> &second);
 
-    template<class T>
-    bool operator ==(const AVLTree<T> &lhs, const AVLTree<T> &rhs);
+    template<typename T, typename TCompare>
+    bool operator ==(const AVLTree<T, TCompare> &lhs, const AVLTree<T, TCompare> &rhs);
 
-    template<class T>
-    bool operator !=(const AVLTree<T> &lhs, const AVLTree<T> &rhs);
+    template<typename T, typename TCompare>
+    bool operator !=(const AVLTree<T, TCompare> &lhs, const AVLTree<T, TCompare> &rhs);
 }

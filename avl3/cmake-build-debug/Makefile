@@ -155,30 +155,6 @@ Google_Tests_run/fast:
 	$(MAKE) $(MAKESILENT) -f GoogleTest/CMakeFiles/Google_Tests_run.dir/build.make GoogleTest/CMakeFiles/Google_Tests_run.dir/build
 .PHONY : Google_Tests_run/fast
 
-AVLIterator.o: AVLIterator.cpp.o
-.PHONY : AVLIterator.o
-
-# target to build an object file
-AVLIterator.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mylib.dir/build.make CMakeFiles/mylib.dir/AVLIterator.cpp.o
-.PHONY : AVLIterator.cpp.o
-
-AVLIterator.i: AVLIterator.cpp.i
-.PHONY : AVLIterator.i
-
-# target to preprocess a source file
-AVLIterator.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mylib.dir/build.make CMakeFiles/mylib.dir/AVLIterator.cpp.i
-.PHONY : AVLIterator.cpp.i
-
-AVLIterator.s: AVLIterator.cpp.s
-.PHONY : AVLIterator.s
-
-# target to generate assembly for a file
-AVLIterator.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mylib.dir/build.make CMakeFiles/mylib.dir/AVLIterator.cpp.s
-.PHONY : AVLIterator.cpp.s
-
 AVLTree.o: AVLTree.cpp.o
 .PHONY : AVLTree.o
 
@@ -203,30 +179,6 @@ AVLTree.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mylib.dir/build.make CMakeFiles/mylib.dir/AVLTree.cpp.s
 .PHONY : AVLTree.cpp.s
 
-Node.o: Node.cpp.o
-.PHONY : Node.o
-
-# target to build an object file
-Node.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mylib.dir/build.make CMakeFiles/mylib.dir/Node.cpp.o
-.PHONY : Node.cpp.o
-
-Node.i: Node.cpp.i
-.PHONY : Node.i
-
-# target to preprocess a source file
-Node.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mylib.dir/build.make CMakeFiles/mylib.dir/Node.cpp.i
-.PHONY : Node.cpp.i
-
-Node.s: Node.cpp.s
-.PHONY : Node.s
-
-# target to generate assembly for a file
-Node.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mylib.dir/build.make CMakeFiles/mylib.dir/Node.cpp.s
-.PHONY : Node.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -238,15 +190,9 @@ help:
 	@echo "... valgrind"
 	@echo "... Google_Tests_run"
 	@echo "... mylib"
-	@echo "... AVLIterator.o"
-	@echo "... AVLIterator.i"
-	@echo "... AVLIterator.s"
 	@echo "... AVLTree.o"
 	@echo "... AVLTree.i"
 	@echo "... AVLTree.s"
-	@echo "... Node.o"
-	@echo "... Node.i"
-	@echo "... Node.s"
 .PHONY : help
 
 

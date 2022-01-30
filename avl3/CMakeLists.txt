@@ -4,4 +4,4 @@ project(mylib VERSION 1.0.1 DESCRIPTION "mylib description")
 set(CMAKE_CXX_STANDARD 14)
 
 add_subdirectory(GoogleTest)
-add_library(mylib Node.cpp AVLTree.cpp AVLIterator.cpp AVLIterator.h)
+add_library(mylib AVLTree.cpp)

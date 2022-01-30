@@ -99,12 +99,12 @@ GoogleTest/clean: GoogleTest/CMakeFiles/Google_Tests_run.dir/clean
 CMakeFiles/mylib.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mylib.dir/build.make CMakeFiles/mylib.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mylib.dir/build.make CMakeFiles/mylib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/CMakeFiles --progress-num=6,7,8,9 "Built target mylib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/CMakeFiles --progress-num=4,5 "Built target mylib"
 .PHONY : CMakeFiles/mylib.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/mylib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/mylib.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/mylib.dir/rule
@@ -130,7 +130,7 @@ GoogleTest/CMakeFiles/valgrind.dir/all: GoogleTest/CMakeFiles/Google_Tests_run.d
 
 # Build rule for subdir invocation for target.
 GoogleTest/CMakeFiles/valgrind.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GoogleTest/CMakeFiles/valgrind.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/CMakeFiles 0
 .PHONY : GoogleTest/CMakeFiles/valgrind.dir/rule
@@ -151,12 +151,12 @@ GoogleTest/CMakeFiles/valgrind.dir/clean:
 GoogleTest/CMakeFiles/Google_Tests_run.dir/all:
 	$(MAKE) $(MAKESILENT) -f GoogleTest/CMakeFiles/Google_Tests_run.dir/build.make GoogleTest/CMakeFiles/Google_Tests_run.dir/depend
 	$(MAKE) $(MAKESILENT) -f GoogleTest/CMakeFiles/Google_Tests_run.dir/build.make GoogleTest/CMakeFiles/Google_Tests_run.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5 "Built target Google_Tests_run"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/CMakeFiles --progress-num=1,2,3 "Built target Google_Tests_run"
 .PHONY : GoogleTest/CMakeFiles/Google_Tests_run.dir/all
 
 # Build rule for subdir invocation for target.
 GoogleTest/CMakeFiles/Google_Tests_run.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GoogleTest/CMakeFiles/Google_Tests_run.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/CMakeFiles 0
 .PHONY : GoogleTest/CMakeFiles/Google_Tests_run.dir/rule

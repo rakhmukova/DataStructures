@@ -3,15 +3,82 @@
 using namespace std;
 using namespace avl;
 
-template<typename T>
-int Node<T>::heightDiff() const {
+template<typename T, typename TCompare>
+typename AVLTree<T, TCompare>::Node &AVLTree<T, TCompare>::Node::operator =(const typename AVLTree<T, TCompare>::Node &other){
+    if (this != &other) {
+        this->left_child = nullptr;
+        this->right_child = nullptr; //instead of deletion
+        auto *tmp = new typename AVLTree<T, TCompare>::Node(other);
+        std::swap(*tmp, *this);
+    }
+    return *this;
+}
+
+template<typename T, typename TCompare>
+void AVLTree<T, TCompare>::Node::updateHeight()
+{
+    this->subtree_height = 1 + std::max(left_child ? left_child->subtree_height : 0,
+                                        right_child ? right_child->subtree_height : 0);
+}
+
+template<typename T, typename TCompare>
+void AVLTree<T, TCompare>::Node::updateSize() {
+    this->subtree_size = 1
+                         + (left_child ? left_child->subtree_size : 0)
+                         + (right_child ? right_child->subtree_size: 0);
+}
+
+template<typename T, typename TCompare>
+AVLTree<T, TCompare>::Node::Node(const T &value, const sNode &left_child, const sNode &right_child)
+        :value(value)
+        ,left_child(left_child)
+        ,right_child(right_child)
+{
+    updateHeight();
+    updateSize();
+}
+
+template<typename T, typename TCompare>
+typename AVLTree<T, TCompare>::Node::sNode AVLTree<T, TCompare>::Node::deepCopy() const{
+    auto copy = std::make_shared<AVLTree<T, TCompare>::Node>(this->value);
+    if (right_child){
+        copy->right_child = right_child->deepCopy();
+    }
+
+    if (left_child){
+        copy->left_child = left_child->deepCopy();
+    }
+
+    copy->updateSize();
+    copy->updateHeight();
+    return copy;
+}
+
+template<typename T, typename TCompare>
+AVLTree<T, TCompare>::Node::Node(const Node &other)
+        :value(other.value)
+{
+    if (other.left_child){
+        left_child = std::make_shared<AVLTree<T, TCompare>::Node>(AVLTree<T, TCompare>::Node(*other.left_child));
+    }
+
+    if (other.right_child){
+        right_child = std::make_shared<AVLTree<T, TCompare>::Node>(AVLTree<T, TCompare>::Node(*other.right_child));
+    }
+
+    updateSize();
+    updateHeight();
+}
+
+template<typename T, typename TCompare>
+int AVLTree<T, TCompare>::Node::heightDiff() const {
     int left_height = left_child? left_child->getHeight() : 0;
     int right_height = right_child ? right_child->getHeight() : 0;
     return left_height - right_height;
 }
 
-template<typename T>
-void Node<T>::print(ostream &os, uint indent) const{
+template<typename T, typename TCompare>
+void AVLTree<T, TCompare>::Node::print(ostream &os, uint indent) const{
     auto child = this->right_child;
     if (child){
         child->print(os, indent + 3);
@@ -28,55 +95,66 @@ void Node<T>::print(ostream &os, uint indent) const{
     }
 }
 
-template <typename T>
-std::ostream &operator<<(ostream &os, const Node<T> &node) {
+template <typename T, typename TCompare>
+std::ostream &operator<<(ostream &os, const typename AVLTree<T, TCompare>::Node &node) {
     node.print(os);
     return os;
 }
 
-template<typename T>
-typename AVLTree<T>::sNode AVLTree<T>::insert(sNode &subtree_root, const T &value) {
+template<typename T, typename TCompare>
+typename AVLTree<T, TCompare>::sNode AVLTree<T, TCompare>::insert(sNode &subtree_root, const T &value) {
     if (!subtree_root){
-        return make_shared<Node<T>>(value);
+        return make_shared<Node>(value);
     }
 
-    if (value == subtree_root->getValue()){
-        return subtree_root;
-    }
-
-    if (value < subtree_root->getValue()){
+    auto cur_value = subtree_root->getValue();
+    if (cmp(value, cur_value)){
         subtree_root->left_child = insert(subtree_root->left_child, value);
     }
-    else {
+    else if (cmp(cur_value, value)){
         subtree_root->right_child = insert(subtree_root->right_child, value);
+    }
+    else{
+        return subtree_root;
     }
 
     subtree_root = recoverBalance(subtree_root);
     return subtree_root;
 }
 
-template<class T>
-typename AVLTree<T>::sNode AVLTree<T>::findNode(const T &value, sNode subtree_root) {
-    if (subtree_root == nullptr || value == subtree_root->getValue()){
+template<typename T, typename TCompare>
+typename AVLTree<T, TCompare>::sNode AVLTree<T, TCompare>::findNode(const T &value, sNode subtree_root) {
+    if (!subtree_root){
         return subtree_root;
     }
 
-    if (value < subtree_root->getValue()){
+    auto cur_value = subtree_root->getValue();
+    if (cmp(value, cur_value)){
         return findNode(value, subtree_root->left_child);
     }
-    else{
+    else if (cmp(cur_value, value)){
         return findNode(value, subtree_root->right_child);
+    }
+    else{
+        return subtree_root;
     }
 }
 
-template<typename T>
-typename AVLTree<T>::sNode AVLTree<T>::deleteIfExists(const T &value, sNode &subtree_root) {
-    if (subtree_root == nullptr){
+template<typename T, typename TCompare>
+typename AVLTree<T, TCompare>::sNode AVLTree<T, TCompare>::deleteIfExists(const T &value, sNode &subtree_root) {
+    if (!subtree_root){
         return nullptr;
     }
 
-    if (value == subtree_root->getValue()){
-        if (subtree_root->left_child == nullptr){
+    auto cur_value = subtree_root->getValue();
+    if(cmp(value, cur_value)){
+        subtree_root->left_child = deleteIfExists(value, subtree_root->left_child);
+    }
+    else if(cmp(cur_value, value)){
+        subtree_root->right_child = deleteIfExists(value, subtree_root->right_child);
+    }
+    else{
+        if (!subtree_root->left_child){
             subtree_root = subtree_root->right_child;
             return subtree_root;
         }
@@ -88,19 +166,13 @@ typename AVLTree<T>::sNode AVLTree<T>::deleteIfExists(const T &value, sNode &sub
         std::swap(subtree_root->value, temp->value); //sizes and heights remain the same
         subtree_root->left_child = deleteIfExists(value, subtree_root->left_child);
     }
-    else if(value < subtree_root->getValue()){
-        subtree_root->left_child = deleteIfExists(value, subtree_root->left_child);
-    }
-    else{
-        subtree_root->right_child = deleteIfExists(value, subtree_root->right_child);
-    }
 
     subtree_root = recoverBalance(subtree_root);
     return subtree_root;
 }
 
-template<class T>
-typename AVLTree<T>::sNode AVLTree<T>::leftRotate(sNode k2) {
+template<typename T, typename TCompare>
+typename AVLTree<T, TCompare>::sNode AVLTree<T, TCompare>::leftRotate(sNode k2) {
     sNode k1 = k2->right_child;
     k2->right_child = k1->left_child;
     k1->left_child = k2;
@@ -120,8 +192,8 @@ typename AVLTree<T>::sNode AVLTree<T>::leftRotate(sNode k2) {
          Y    Z              X    Y
  */
 
-template<class T>
-typename AVLTree<T>::sNode AVLTree<T>::rightRotate(sNode k2) {
+template<typename T, typename TCompare>
+typename AVLTree<T, TCompare>::sNode AVLTree<T, TCompare>::rightRotate(sNode k2) {
     sNode k1 = k2->left_child;
     k2->left_child = k1->right_child;
     k1->right_child = k2;
@@ -141,8 +213,8 @@ typename AVLTree<T>::sNode AVLTree<T>::rightRotate(sNode k2) {
     X   Y                    Y    Z
 */
 
-template<class T>
-typename AVLTree<T>::sNode AVLTree<T>::recoverBalance(sNode subtree_root) {
+template<typename T, typename TCompare>
+typename AVLTree<T, TCompare>::sNode AVLTree<T, TCompare>::recoverBalance(sNode subtree_root) {
     int diff = subtree_root->heightDiff();
     if (diff >= -1 && diff <= 1){
         subtree_root->updateHeight();
@@ -166,22 +238,24 @@ typename AVLTree<T>::sNode AVLTree<T>::recoverBalance(sNode subtree_root) {
     return subtree_root;
 }
 
-template<class T>
-AVLTree<T>::AVLTree(sNode root) //what's going on
-        :root(root){}
+template<typename T, typename TCompare>
+AVLTree<T, TCompare>::AVLTree(sNode root, const TCompare &cmp) //what's going on
+        :root(root)
+        ,cmp(cmp){}
 
-template<class T>
-AVLTree<T>::AVLTree(const vector<T> &elements)
-:root(nullptr){
+template<typename T, typename TCompare>
+AVLTree<T, TCompare>::AVLTree(const vector<T> &elements, const TCompare &cmp)
+:root(nullptr)
+,cmp(cmp){
     for (auto el : elements){
         insert(el);
     }
 }
 
-template<class T>
-std::vector<T> AVLTree<T>::toArray() const{
+template<typename T, typename TCompare>
+std::vector<T> AVLTree<T, TCompare>::toArray() const{
     vector<T> array;
-    auto it = AVLIterator<T>(*this); //copying is occuring
+    auto it = AVLIterator(*this); //copying is occuring
     while (it.currentNode() != nullptr){
         array.push_back(*it);
         ++it;
@@ -189,35 +263,28 @@ std::vector<T> AVLTree<T>::toArray() const{
     return array;
 }
 
-template<class T>
-AVLTree<T> &AVLTree<T>::operator=(const AVLTree &other) {
+template<typename T, typename TCompare>
+AVLTree<T, TCompare> &AVLTree<T, TCompare>::operator=(const AVLTree &other) {
     if (this != &other){
-        AVLTree<T>tmp(other);
+        AVLTree<T, TCompare>tmp(other);
         std::swap(*this, tmp);
     }
     return *this;
 }
 
-template<class T>
-AVLTree<T>::AVLTree(const AVLTree &other){
+template<class T, class TCompare>
+AVLTree<T, TCompare>::AVLTree(const AVLTree &other){
     if (other.root){
-        root = make_shared<Node<T>>(Node<T>(*other.root));
+        root = make_shared<Node>(Node(*other.root));
     }
 }
 
-/*
-template<class T>
-AVLTree<T>::~AVLTree() {
-    //delete root;
-}*/
-
-template<class T>
-typename AVLTree<T>::sNode
-AVLTree<T>::mergeWithRootAndBalance(AVLTree::sNode  left, AVLTree::sNode  right, AVLTree::sNode  subtree_root) {
+template<typename T, typename TCompare>
+typename AVLTree<T, TCompare>::sNode
+AVLTree<T, TCompare>::mergeWithRootAndBalance(AVLTree::sNode  left, AVLTree::sNode  right, AVLTree::sNode  subtree_root) {
     if (!subtree_root){
         return nullptr;
     }
-    //
 
     int heightDiff = (left? left->getHeight() : 0)
             - (right? right->getHeight() : 0);
@@ -242,9 +309,9 @@ AVLTree<T>::mergeWithRootAndBalance(AVLTree::sNode  left, AVLTree::sNode  right,
     return right;
 }
 
-template<class T>
-pair<typename AVLTree<T>::sNode  , typename AVLTree<T>::sNode  >
-AVLTree<T>::split(AVLTree::sNode  subtree_root, const T &value, bool left_is_strictly_Less) {
+template<typename T, typename TCompare>
+pair<typename AVLTree<T, TCompare>::sNode  , typename AVLTree<T, TCompare>::sNode  >
+AVLTree<T, TCompare>::split(AVLTree::sNode  subtree_root, const T &value, bool left_is_strictly_Less) {
     std::pair<sNode  , sNode  > result(nullptr, nullptr);
     if (!subtree_root){
         return result;
@@ -262,45 +329,46 @@ AVLTree<T>::split(AVLTree::sNode  subtree_root, const T &value, bool left_is_str
     }
 }
 
-template<class T>
-void AVLTree<T>::print(ostream &os) const {
-    os << "===========================\n";
+template<typename T, typename TCompare>
+void AVLTree<T, TCompare>::print(ostream &os) const {
+    os << "tree:\n";
     if (root){
         root->print(os);
     }
     else{
-        os << "empty tree";
+        os << "tree is empty";
     }
 }
 
-template<class T>
-std::pair<AVLTree<T>, AVLTree<T>> AVLTree<T>::split(AVLTree &tree, const T &value, bool left_is_strictly_Less) {
+template<typename T, typename TCompare>
+std::pair<AVLTree<T, TCompare>, AVLTree<T, TCompare>> AVLTree<T, TCompare>::split(AVLTree &tree, const T &value, bool left_is_strictly_Less) {
     auto nodes = split(tree.root, value, left_is_strictly_Less);
-    return std::make_pair(AVLTree<T>(nodes.first), AVLTree<T>(nodes.second));
+    return std::make_pair(AVLTree<T, TCompare>(nodes.first), AVLTree<T, TCompare>(nodes.second));
 }
 
 
-template<class T>
-AVLTree<T>::AVLTree(const initializer_list<T> &il)
-:root(sNode(nullptr)){
+template<typename T, typename TCompare>
+AVLTree<T, TCompare>::AVLTree(const initializer_list<T> &il, const TCompare &cmp)
+:root(sNode(nullptr))
+,cmp(cmp){
     for (auto el: il){
         insert(el);
     }
 }
 
-template <typename T>
-std::ostream& operator<<(std::ostream& os, const AVLTree<T> &tree){
+template <typename T, typename TCompare>
+std::ostream& operator<<(std::ostream& os, const AVLTree<T, TCompare> &tree){
     tree.print(os);
     return os;
 }
 
-template <typename T>
-bool operator==(const AVLTree<T> &tree, const std::set<T> &set){
+template <typename T, typename TCompare>
+bool operator==(const AVLTree<T, TCompare> &tree, const std::set<T, TCompare> &set){
     if (set.size() != tree.size()){
         return false;
     }
 
-    auto tree_it = AVLIterator<T>(tree); // redo
+    auto tree_it = AVLIterator(tree); // redo
     auto set_it = set.begin();
     for (; tree_it.currentNode() || set_it != set.end(); ++set_it, ++tree_it){
         if (*tree_it != *set_it){
@@ -310,11 +378,11 @@ bool operator==(const AVLTree<T> &tree, const std::set<T> &set){
     return set_it == set.end() && tree_it.next() == nullptr;
 }
 
-template<class T>
-AVLTree<T> setIntersection(const AVLTree<T> &first, const AVLTree<T> &second){
-    AVLTree<T> intersection;
-    AVLIterator<T> it1(first);
-    AVLIterator<T> it2(second);
+template<typename T, typename TCompare>
+AVLTree<T, TCompare> setIntersection(const AVLTree<T, TCompare> &first, const AVLTree<T, TCompare> &second){
+    AVLTree<T, TCompare> intersection;
+    typename AVLTree<T, TCompare>::AVLIterator it1(first);
+    typename AVLTree<T, TCompare>::AVLIterator it2(second);
     while(it1.currentNode() && it2.currentNode()){
         T f_value = *it1;
         T s_value = *it2;
@@ -334,10 +402,10 @@ AVLTree<T> setIntersection(const AVLTree<T> &first, const AVLTree<T> &second){
     return intersection;
 }
 
-template<class T>
-AVLTree<T> setUnion(const AVLTree<T> &first, const AVLTree<T> &second){
-    auto trees_union = AVLTree<T>(first);
-    AVLIterator<T> it(second);
+template<typename T, typename TCompare>
+AVLTree<T, TCompare> setUnion(const AVLTree<T, TCompare> &first, const AVLTree<T, TCompare> &second){
+    auto trees_union = AVLTree<T, TCompare>(first);
+    typename AVLTree<T, TCompare>::AVLIterator it(second);
     while(it.currentNode()){
         trees_union.insert(*it);
         ++it;
@@ -346,10 +414,10 @@ AVLTree<T> setUnion(const AVLTree<T> &first, const AVLTree<T> &second){
     return trees_union;
 }
 
-template<class T>
-AVLTree<T> setDifference(const AVLTree<T> &first, const AVLTree<T> &second){
-    auto trees_difference = AVLTree<T>(first);
-    AVLIterator<T> it(second);
+template<typename T, typename TCompare>
+AVLTree<T, TCompare> setDifference(const AVLTree<T, TCompare> &first, const AVLTree<T, TCompare> &second){
+    auto trees_difference = AVLTree<T, TCompare>(first);
+    typename AVLTree<T, TCompare>::AVLIterator it(second);
     while(it.currentNode()){
         trees_difference.deleteIfExists(*it);
         ++it;
@@ -357,14 +425,14 @@ AVLTree<T> setDifference(const AVLTree<T> &first, const AVLTree<T> &second){
     return trees_difference;
 }
 
-template<class T>
-bool operator ==(const AVLTree<T> &lhs, const AVLTree<T> &rhs){
+template<typename T, typename TCompare>
+bool operator ==(const AVLTree<T, TCompare> &lhs, const AVLTree<T, TCompare> &rhs){
     if (lhs.size() != rhs.size()){
         return false;
     }
 
-    auto it1 = AVLIterator<T>(lhs);
-    auto it2 = AVLIterator<T>(rhs);
+    auto it1 = AVLIterator(lhs);
+    auto it2 = AVLIterator(rhs);
     while(it1.currentNode() != nullptr){
         if (*it1 != *it2){
             return false;
@@ -375,7 +443,53 @@ bool operator ==(const AVLTree<T> &lhs, const AVLTree<T> &rhs){
     return true;
 }
 
-template<class T>
-bool operator !=(const AVLTree<T> &lhs, const AVLTree<T> &rhs){
+template<typename T, typename TCompare>
+bool operator !=(const AVLTree<T, TCompare> &lhs, const AVLTree<T, TCompare> &rhs){
     return !(lhs == rhs);
+}
+
+
+template<typename T, typename TCompare>
+typename AVLTree<T, TCompare>::AVLIterator &AVLTree<T, TCompare>::AVLIterator::operator++(){
+    if (current){
+        pushLeftBranch(current->right_child);
+    }
+
+    return *this;
+}
+
+template<typename T, typename TCompare>
+typename AVLTree<T, TCompare>::AVLIterator &AVLTree<T, TCompare>::AVLIterator::operator++(int){
+    AVLIterator copy = *this;
+    ++this;
+    return copy;
+}
+
+template<typename T, typename TCompare>
+AVLTree<T, TCompare>::AVLIterator::AVLIterator(const AVLTree<T>& tree){
+    pushLeftBranch(tree.root);
+}
+
+template<typename T, typename TCompare>
+typename AVLTree<T, TCompare>::AVLIterator &AVLTree<T, TCompare>::AVLIterator::operator=(const AVLTree<T, TCompare>::AVLIterator &other) {
+    if (*this != other){
+        this->nodes = other.nodes;
+    }
+    return *this;
+}
+
+template<typename T, typename TCompare>
+void AVLTree<T, TCompare>::AVLIterator::pushLeftBranch(typename AVLTree<T, TCompare>::Node::sNode current_node) {
+    while(current_node){
+        nodes.push(current_node);
+        current_node = current_node->left_child;
+    }
+
+    if (nodes.empty()){
+        current = nullptr;
+    }
+    else{
+        current = nodes.top();
+        nodes.pop();
+    }
 }

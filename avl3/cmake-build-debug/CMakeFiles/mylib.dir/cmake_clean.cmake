@@ -1,7 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/mylib.dir/AVLIterator.cpp.o"
   "CMakeFiles/mylib.dir/AVLTree.cpp.o"
-  "CMakeFiles/mylib.dir/Node.cpp.o"
   "libmylib.a"
   "libmylib.pdb"
 )

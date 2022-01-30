@@ -332,16 +332,6 @@ cxxabi.h
 acxx_demangle.h
 -
 
-../AVLIterator.cpp
-AVLIterator.h
-../AVLIterator.h
-
-../AVLIterator.h
-stack
--
-AVLTree.h
-../AVLTree.h
-
 ../AVLTree.cpp
 AVLTree.h
 ../AVLTree.h
@@ -351,27 +341,17 @@ vector
 -
 initializer_list
 -
-Node.h
-../Node.h
-AVLIterator.h
-../AVLIterator.h
-
-../Node.cpp
-iostream
--
-Node.h
-../Node.h
-
-../Node.h
-iostream
--
-algorithm
--
-set
--
 functional
 -
 memory
+-
+cstdlib
+-
+stack
+-
+set
+-
+iostream
 -
 
 /home/user/repos/3rd_semester_c-/DataStructs/avl3/GoogleTest/tests.cpp
@@ -381,10 +361,6 @@ AVLTree.h
 /home/user/repos/3rd_semester_c-/DataStructs/avl3/GoogleTest/AVLTree.h
 AVLTree.cpp
 /home/user/repos/3rd_semester_c-/DataStructs/avl3/GoogleTest/AVLTree.cpp
-Node.cpp
-/home/user/repos/3rd_semester_c-/DataStructs/avl3/GoogleTest/Node.cpp
-AVLIterator.cpp
-/home/user/repos/3rd_semester_c-/DataStructs/avl3/GoogleTest/AVLIterator.cpp
 algorithm
 -
 

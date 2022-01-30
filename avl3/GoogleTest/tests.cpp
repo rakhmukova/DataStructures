@@ -1,8 +1,6 @@
 #include "gtest/gtest.h"
 #include "AVLTree.h"
 #include "AVLTree.cpp"
-#include "Node.cpp"
-#include "AVLIterator.cpp"
 #include <algorithm>
 
 using namespace std;
@@ -20,8 +18,7 @@ TEST(TreeOperations, InsertAndDelete){
         tree.insert(el);
         set.insert(el);
         ASSERT_TRUE(tree.contains(el));
-        //ASSERT_EQ(tree.size(), set.size());
-        //tree.print(cout);
+        ASSERT_EQ(tree.size(), set.size());
     }
 
     for (auto el: vector){

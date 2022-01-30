@@ -66,22 +66,9 @@ include CMakeFiles/mylib.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/mylib.dir/flags.make
 
-CMakeFiles/mylib.dir/Node.cpp.o: CMakeFiles/mylib.dir/flags.make
-CMakeFiles/mylib.dir/Node.cpp.o: ../Node.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mylib.dir/Node.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mylib.dir/Node.cpp.o -c /home/user/repos/3rd_semester_c-/DataStructs/avl3/Node.cpp
-
-CMakeFiles/mylib.dir/Node.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mylib.dir/Node.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/repos/3rd_semester_c-/DataStructs/avl3/Node.cpp > CMakeFiles/mylib.dir/Node.cpp.i
-
-CMakeFiles/mylib.dir/Node.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mylib.dir/Node.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/repos/3rd_semester_c-/DataStructs/avl3/Node.cpp -o CMakeFiles/mylib.dir/Node.cpp.s
-
 CMakeFiles/mylib.dir/AVLTree.cpp.o: CMakeFiles/mylib.dir/flags.make
 CMakeFiles/mylib.dir/AVLTree.cpp.o: ../AVLTree.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mylib.dir/AVLTree.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mylib.dir/AVLTree.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mylib.dir/AVLTree.cpp.o -c /home/user/repos/3rd_semester_c-/DataStructs/avl3/AVLTree.cpp
 
 CMakeFiles/mylib.dir/AVLTree.cpp.i: cmake_force
@@ -92,34 +79,17 @@ CMakeFiles/mylib.dir/AVLTree.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mylib.dir/AVLTree.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/repos/3rd_semester_c-/DataStructs/avl3/AVLTree.cpp -o CMakeFiles/mylib.dir/AVLTree.cpp.s
 
-CMakeFiles/mylib.dir/AVLIterator.cpp.o: CMakeFiles/mylib.dir/flags.make
-CMakeFiles/mylib.dir/AVLIterator.cpp.o: ../AVLIterator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/mylib.dir/AVLIterator.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mylib.dir/AVLIterator.cpp.o -c /home/user/repos/3rd_semester_c-/DataStructs/avl3/AVLIterator.cpp
-
-CMakeFiles/mylib.dir/AVLIterator.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mylib.dir/AVLIterator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/repos/3rd_semester_c-/DataStructs/avl3/AVLIterator.cpp > CMakeFiles/mylib.dir/AVLIterator.cpp.i
-
-CMakeFiles/mylib.dir/AVLIterator.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mylib.dir/AVLIterator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/repos/3rd_semester_c-/DataStructs/avl3/AVLIterator.cpp -o CMakeFiles/mylib.dir/AVLIterator.cpp.s
-
 # Object files for target mylib
 mylib_OBJECTS = \
-"CMakeFiles/mylib.dir/Node.cpp.o" \
-"CMakeFiles/mylib.dir/AVLTree.cpp.o" \
-"CMakeFiles/mylib.dir/AVLIterator.cpp.o"
+"CMakeFiles/mylib.dir/AVLTree.cpp.o"
 
 # External object files for target mylib
 mylib_EXTERNAL_OBJECTS =
 
-libmylib.a: CMakeFiles/mylib.dir/Node.cpp.o
 libmylib.a: CMakeFiles/mylib.dir/AVLTree.cpp.o
-libmylib.a: CMakeFiles/mylib.dir/AVLIterator.cpp.o
 libmylib.a: CMakeFiles/mylib.dir/build.make
 libmylib.a: CMakeFiles/mylib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library libmylib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/user/repos/3rd_semester_c-/DataStructs/avl3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libmylib.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/mylib.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mylib.dir/link.txt --verbose=$(VERBOSE)
 
