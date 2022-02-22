@@ -25,7 +25,6 @@ void SegmentTree<T>::buildTree() {
                 layer.pop();
             }
             auto parent = std::shared_ptr<Node>(new Node(left->value + (right? right->value : 0), left, right));
-            //+ -> op()
             layer.push(parent);
         }
     }
@@ -52,7 +51,10 @@ void SegmentTree<T>::set(size_t index, T value, std::shared_ptr<Node> &node, siz
         set(index, value, node->right, m + 1, right);
     }
 
-    node->value = node->left->value + node->right->value; //they could not exist
+    node->value =
+            (node->left? node->left->value : 0)
+            +
+            (node->right? node->right->value : 0);
 }
 
 template<typename T>
